@@ -14,24 +14,16 @@ conda activate molpgt
 ```
 ## Data Preparation
 
-The generated pre-training data blocks are listed as follows:
+please run the following command to preprocess the pre-training dataset:
 
-```
-|-- datasets
-    |-- pretrain
-        |-- summary.json
-        |-- val_block.pkl
-        |-- train_block_i.pkl
+```bash
+python emegt/data/data_preprocess.py
 ```
 
-The generated fine-tuning data blocks are listed as follows:
+please run the following command to preprocess the fine-tuning dataset:
 
-```
-|-- datasets
-    |-- finetune
-        |-- bace_summary.json
-        |-- bace.pkl
-        |-- ...
+```bash
+python emegt/data/finetune_preprocess.py
 ```
 
 The raw data sets are listed as follows:
