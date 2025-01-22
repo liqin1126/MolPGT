@@ -18,7 +18,7 @@ Basic Encoder for compound atom/bond features.
 import numpy as np
 import torch
 import torch.nn as nn
-from emegt.data import CompoundKit
+from molpgt.data import CompoundKit
 
 
 class AtomEmbedding(nn.Module):

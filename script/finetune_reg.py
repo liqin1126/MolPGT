@@ -17,10 +17,10 @@ import torch.distributed as dist
 import argparse
 
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from emegt import utils
-from emegt.layers import Graph_Transformer
-from emegt.models import MolProperty
-from emegt.data import BatchDatapointProperty, GEOMDataset, balanced_scaffold_split, random_split, scaffold_split
+from molpgt import utils
+from molpgt.layers import Graph_Transformer
+from molpgt.models import MolProperty
+from molpgt.data import BatchDatapointProperty, GEOMDataset, balanced_scaffold_split, random_split, scaffold_split
 from torch_geometric.loader import DataLoader
 
 from collections import OrderedDict

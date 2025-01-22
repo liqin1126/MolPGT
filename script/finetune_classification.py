@@ -14,10 +14,10 @@ import torch.distributed as dist
 import argparse
 from sklearn.metrics import (accuracy_score, average_precision_score,
                              roc_auc_score)
-from emegt import utils
-from emegt.layers import Graph_Transformer
-from emegt.models import Classification
-from emegt.data import BatchDatapointProperty, GEOMDataset, balanced_scaffold_split, random_split, scaffold_split
+from molpgt import utils
+from molpgt.layers import Graph_Transformer
+from molpgt.models import Classification
+from molpgt.data import BatchDatapointProperty, GEOMDataset, balanced_scaffold_split, random_split, scaffold_split
 from torch_geometric.loader import DataLoader
 
 from collections import OrderedDict

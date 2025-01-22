@@ -17,13 +17,13 @@ conda activate molpgt
 please run the following command to preprocess the pre-training dataset:
 
 ```bash
-python emegt/data/data_preprocess.py
+python molpgt/data/data_preprocess.py
 ```
 
 please run the following command to preprocess the fine-tuning dataset:
 
 ```bash
-python emegt/data/finetune_preprocess.py
+python molpgt/data/finetune_preprocess.py
 ```
 
 The raw data sets are listed as follows:

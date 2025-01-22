@@ -11,14 +11,14 @@ import torch
 import sys
 sys.path.append('.')
 from torch_geometric.loader import DataLoader
-from emegt import utils, layers, models
+from molpgt import utils, layers, models
 from time import time
 
 from torch.utils.data.distributed import DistributedSampler
 from torch.nn.parallel import DistributedDataParallel
 import torch.distributed as dist
 
-from emegt.data import BatchDatapoint, GEOMDataset
+from molpgt.data import BatchDatapoint, GEOMDataset
 import json
 
 torch.multiprocessing.set_sharing_strategy('file_system')
