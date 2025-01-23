@@ -122,7 +122,7 @@ def gen_GEOM_blocks(base_path, output_dir, dataset):
     smiles_list = []
     target_list = []
 
-    smiles_path = os.path.join(base_path, "%s.csv" % dataset)
+    smiles_path = os.path.join(base_path, "raw", "%s.csv" % dataset)
     with open(smiles_path, 'r') as f:
         reader = csv.reader(f)
         fields = next(reader)
@@ -170,9 +170,9 @@ def gen_GEOM_blocks(base_path, output_dir, dataset):
     size = len(data)
     print(data[0])
     print('dataset_size: %d molecules.' % size)
-    with open(os.path.join(base_path, '', output_dir, '%s_.pkl' % dataset), 'wb') as f:
+    with open(os.path.join(base_path, '', output_dir, '%s.pkl' % dataset), 'wb') as f:
         pickle.dump(data, f)
-    with open(os.path.join(base_path, '', output_dir, '%s_summary_.json' % dataset), 'w') as f:
+    with open(os.path.join(base_path, '', output_dir, '%s_summary.json' % dataset), 'w') as f:
         json.dump({
             'dataset num': 1,
             'dataset size': size,

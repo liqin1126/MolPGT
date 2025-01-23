@@ -20,10 +20,10 @@ You can also preprocess the dataset yourself by running the following command.
 
 ```bash
 # pretrain
-python molpgt/data/data_preprocess.py
+python molpgt/data/data_preprocess.py --base_path datasets --output pretrain --val_num 25000
 
 # finetune
-python molpgt/data/finetune_preprocess.py
+python molpgt/data/finetune_preprocess.py --base_path datasets --output finetune --dataset bace
 ```
 
 The raw datasets are listed as follows:

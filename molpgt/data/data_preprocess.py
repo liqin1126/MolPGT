@@ -54,7 +54,7 @@ def gen_train_val(base_path, val_num = 200, workers = 10, seed=None):
     smiles_list = []
 
     # read zinc_250k_smiles file
-    smiles_path = os.path.join(base_path, "zinc15_250k.csv")
+    smiles_path = os.path.join(base_path, "raw", "zinc15_250K.csv")
     with open(smiles_path, 'r') as f:
         reader = csv.reader(f)
         next(reader)
