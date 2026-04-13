@@ -1,4 +1,4 @@
-# Self-Supervised Graph Transformer with Atom-to-Bond Attention for Molecular Property Prediction
+# Self-supervised graph transformer with global node-edge communications for molecular property prediction
 
 This repository is the official implementation of **MolPGT**.
 
@@ -12,21 +12,40 @@ conda env create -f env.yml
 # Activate the environment
 conda activate molpgt
 ```
+
 ## Data Preparation
 
-We provide pre-processed datasets download address: https://pan.quark.cn/s/6295350998d4
+### Download Pre-processed Datasets
 
-You can also preprocess the dataset yourself by running the following command.
+We provide pre-processed datasets on Hugging Face Hub for direct use:
 
 ```bash
-# pretrain
+pip install huggingface_hub
+```
+
+```python
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="tanlq/MolPGT-datasets",
+    repo_type="dataset",
+    local_dir="./datasets"
+)
+```
+
+### Preprocess Datasets from Scratch
+
+You can also preprocess the raw datasets yourself by running the following commands:
+
+```bash
+# Pre-training
 python molpgt/data/data_preprocess.py --base_path datasets --output pretrain --val_num 25000
 
-# finetune
+# Fine-tuning (e.g., bace)
 python molpgt/data/finetune_preprocess.py --base_path datasets --output finetune --dataset bace
 ```
 
-The raw datasets are listed as follows:
+The raw datasets should be organized as follows:
 
 ```
 |-- datasets
@@ -65,7 +84,7 @@ The generated pre-training model are listed as follows:
 
 please run the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 python pretrain_cl.py --config_path config/pretrain_cl.yml
+CUDA_VISIBLE_DEVICES=0,1,2,3 python script/pretrain_cl.py --config_path config/pretrain_cl.yml
 ```
 
 ## Fine-tuning
@@ -74,9 +93,9 @@ If you want to use our pre-trained model directly for molecular property predict
 
 ```bash
 # For classification tasks
-python finetune_classificaiton.py --config_path config/finetune_classificaiton.yml
+python script/finetune_classificaiton.py --config_path config/finetune_classificaiton.yml
 # For regression tasks
-python finetune_reg.py --config_path config/finetune_reg.yml
+python script/finetune_reg.py --config_path config/finetune_reg.yml
 ```
 The following table gives the hyperparameter selection for each task:
 
